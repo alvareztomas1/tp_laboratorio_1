@@ -46,7 +46,16 @@ int getChar (char* input, char *message, char *eMessage, char lowLimit, char hiL
  */
 int getString (char* input, char* message, char *eMessage, int lowLimit, int hiLimit);
 
-
+/** \brief Solicita al usuario el ingreso de dos caracteres y los valida
+ *
+ * \param  input Los dos caracteres a ingresar
+ * \param  message Es el mensaje a ser mostrado
+ * \param eMessage Es el mensaje a ser mostrado en caso de error
+ * \param lowLimit Longitud mínima de la cadena
+ * \param hiLimit Longitud máxima de la cadena
+ * \return Void
+ *
+ */
 void validarDosChar(char* input, char message[], char eMessage[], char lowLimit, char hiLimit);
 
 

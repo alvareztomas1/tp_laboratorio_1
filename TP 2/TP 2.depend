@@ -53,7 +53,7 @@
 
 1557866361 c:\escritorio\programacion-1\tp 2\input.h
 
-1558455154 source:c:\users\alvar\desktop\programacion-1\tp 2\empleados.c
+1559582864 source:c:\users\alvar\desktop\programacion-1\tp 2\empleados.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -62,21 +62,22 @@
 	"empleados.h"
 	"input.h"
 
-1558455126 c:\users\alvar\desktop\programacion-1\tp 2\empleados.h
+1559401788 c:\users\alvar\desktop\programacion-1\tp 2\empleados.h
 
-1558041506 c:\users\alvar\desktop\programacion-1\tp 2\input.h
+1559400023 c:\users\alvar\desktop\programacion-1\tp 2\input.h
 
-1558041372 source:c:\users\alvar\desktop\programacion-1\tp 2\input.c
+1558793310 source:c:\users\alvar\desktop\programacion-1\tp 2\input.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 
-1558455524 source:c:\users\alvar\desktop\programacion-1\tp 2\main.c
+1559582883 source:c:\users\alvar\desktop\programacion-1\tp 2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 	"empleados.h"
+	"input.h"
 
