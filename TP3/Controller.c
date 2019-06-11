@@ -26,13 +26,7 @@ int controller_menu()
 
     return rta;
 }
-/** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -65,7 +59,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
                 employee_setSueldo(newEmploye, atoi(buffer[3]));
 
                 ll_add(pArrayListEmployee, newEmploye);
-
+                printf(" %04d   %-10s   %3d   %6d\n\n", newEmploye->id, newEmploye->nombre, newEmploye->horasTrabajadas, newEmploye->sueldo);
                 error = 0;
             }
 
@@ -77,13 +71,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -122,38 +110,31 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Alta de empleados
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
     int error = 1;
     int id;
     Employee* employee = employee_new();
 
-    input_getString(employee->nombre, "Ingrese nombre: ", "Superaste los caracteres. Reingresa: ", 0, 128);
-    input_getInt(&employee->horasTrabajadas, "Ingrese horas trabajadas: ", "Rango entre 0-350. Reingresa: ", 40, 350);
-    input_getInt(&employee->sueldo, "Ingrese sueldo: ", "Rango entre 9000 y 100000. Reingrese: ", 9000, 100000);
-    id = employee_findLastId(pArrayListEmployee);
+    if ( employee != NULL )
+    {
+        input_getString(employee->nombre, "Ingrese nombre: ", "Superaste los caracteres. Reingresa: ", 0, 128);
+        input_getInt(&employee->horasTrabajadas, "Ingrese horas trabajadas: ", "Rango entre 0-350. Reingresa: ", 40, 350);
+        input_getInt(&employee->sueldo, "Ingrese sueldo: ", "Rango entre 9000 y 100000. Reingrese: ", 9000, 100000);
+        id = employee_findLastId(pArrayListEmployee);
 
-    employee->id = id+1;
+        employee->id = id+1;
 
-    ll_add(pArrayListEmployee, employee);
+        ll_add(pArrayListEmployee, employee);
+        error = 0;
+    }
+
 
     return error;
 }
 
-/** \brief Modificar datos de empleado
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -223,13 +204,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Baja de empleado
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -276,13 +251,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Listar empleados
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -305,13 +274,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Ordenar empleados
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -319,7 +282,8 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
     Employee* employeeJ = employee_new();
     Employee* aux = employee_new();
 
-    if ( employeeI != NULL && employeeJ !=  NULL )
+
+    if ( employeeI != NULL   && aux != NULL )
     {
          for ( int i = 0; i < ll_len(pArrayListEmployee); i++ )
         {
@@ -331,9 +295,11 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 
                 if ( strcmp (employeeI->nombre, employeeJ->nombre) > 0 )
                 {
-                    aux = employeeI;
-                    employeeI = employeeJ;
-                    employeeJ = aux;
+                    *aux = *employeeI;
+                    *employeeI = *employeeJ;
+                    *employeeJ = *aux;
+                    /*ll_set(pArrayListEmployee, j, employeeI);
+                    ll_set(pArrayListEmployee, i, aux);*/
                     error = 0;
                 }
             }
@@ -343,13 +309,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
     int error = 1;
@@ -368,7 +328,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
             employee = ll_get(pArrayListEmployee, i);
 
             fprintf(f, "%d,%s,%d,%d\n", employee->id, employee->nombre, employee->horasTrabajadas, employee->sueldo);
-
+             printf(" %04d   %-10s   %3d   %6d\n\n", employee->id, employee->nombre, employee->horasTrabajadas, employee->sueldo);
             error = 0;
         }
     }
@@ -378,13 +338,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
     return error;
 }
 
-/** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
- *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
- */
+
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
     int error = 1;

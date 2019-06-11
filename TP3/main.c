@@ -64,7 +64,18 @@ int main()
                 break;
 
             case 3:
-                controller_addEmployee(listaEmpleados);
+                system("cls");
+                error = controller_addEmployee(listaEmpleados);
+
+                if ( error )
+                {
+                    printf("\nNo se pudo realizar el alta!!\n\n");
+                }
+                else
+                {
+                    printf("\Alta empleado exitosa!!\n\n");
+                }
+                system("pause");
                 break;
 
             case 4:
@@ -113,7 +124,18 @@ int main()
                 break;
 
             case 7:
-                controller_sortEmployee(listaEmpleados);
+                system("cls");
+                error = controller_sortEmployee(listaEmpleados);
+
+                if ( error )
+                {
+                    printf("\nNo se pudo ordenar!!\n\n");
+                }
+                else
+                {
+                    printf("\nOrdenamiento exitoso!!\n\n");
+                }
+                system("pause");
                 break;
 
             case 8:
