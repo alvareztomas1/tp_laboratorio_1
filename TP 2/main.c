@@ -25,7 +25,7 @@ int main()
     int contadorLegajo=1;
     int error;
 
-    inicializarEmpleados(lista, TAM_EMPLEADOS);
+    //inicializarEmpleados(lista, TAM_EMPLEADOS);
 
     do
     {

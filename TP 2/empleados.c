@@ -362,27 +362,25 @@ int informeSalarios (eEmpleado* emp, int tam)
             }
         }
 
-        if (contadorEmpleados==0)
+        if (contadorEmpleados>0)
         {
-            return 1;
-        }
+            promedio=total/contadorEmpleados;
 
-        promedio=total/contadorEmpleados;
-
-        for (int i=0;i<tam;i++)
-        {
-            if (emp[i].salary>promedio)
+            for (int i=0;i<tam;i++)
             {
-                contadorSalario++;
+                if (emp[i].salary>promedio)
+                {
+                    contadorSalario++;
+                }
             }
-        }
 
-        if (contadorEmpleados>0 && contadorSalario>0)
-        {
-            printf("El total de salarios es: %d. Con un promedio de %d y %d personas superandolo\n",total,  promedio, contadorSalario);
-            todoOk=0;
-        }
+            if (contadorSalario>0)
+            {
+                printf("El total de salarios es: %d. Con un promedio de %d y %d personas superandolo\n",total,  promedio, contadorSalario);
+                todoOk=0;
+            }
 
+        }
 
     }
 
