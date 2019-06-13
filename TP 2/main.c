@@ -10,26 +10,17 @@
 
 int main()
 {
-    eEmpleado lista[TAM_EMPLEADOS]
-    =
-    {
-        {1, "Tomas", "Alvarez", 50000, 1,0 },
-        {2, "Florencia", "Cortes", 30000, 4, 0},
-        {3, "Julieta", "Cortes", 35000, 3, 0},
-        {4, "Bonavena", "Julio", 60000, 2, 0},
-        {5, "Ramon", "Alvarez", 30000, 2, 0},
-    };
+    eEmpleado lista[TAM_EMPLEADOS];
 
     char seguir='s';
     char salir;
     int contadorLegajo=1;
     int error;
 
-    //inicializarEmpleados(lista, TAM_EMPLEADOS);
+    inicializarEmpleados(lista, TAM_EMPLEADOS);
 
     do
     {
-
         switch (menu())
         {
             case 1:

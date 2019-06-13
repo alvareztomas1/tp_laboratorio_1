@@ -268,7 +268,6 @@ int modificarEmpleado (eEmpleado* emp, int tam)
     int busquedaId=0;
     char salir;
     int opcion;
-    int sinEmpleados=0;
 
     if (tam!=0)
     {
@@ -276,7 +275,6 @@ int modificarEmpleado (eEmpleado* emp, int tam)
         {
             if (emp[i].itsEmpty==0)
             {
-                sinEmpleados++;
                 mostrarEmpleados(emp, tam);
                 getInt(&id, "Ingrese id: ", "No entra en el rango. Reingrese: ", 1, 10000);
 
@@ -334,12 +332,6 @@ int modificarEmpleado (eEmpleado* emp, int tam)
         }
     }
 
-    /*if (sinEmpleados==0)
-    {
-        printf("\nNo hay empleados que modificar!!\n\n");
-    }
-
-*/
     return todoOk;
 }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
