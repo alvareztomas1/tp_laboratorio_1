@@ -159,13 +159,13 @@
 	<string.h>
 	<conio.h>
 
-1559935358 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\employee.c
+1560531625 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Employee.h"
 
-1559932425 c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\employee.h
+1560530496 c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\employee.h
 	"LinkedList.h"
 
 1559747389 c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\linkedlist.h
@@ -176,7 +176,7 @@
 	<string.h>
 	<conio.h>
 
-1560293996 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\main.c
+1560530878 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -189,17 +189,22 @@
 
 1559754325 c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\input.h
 
-1559747389 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\parser.c
+1560531625 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
 
-1560294780 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\controller.c
+1560530961 source:c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
+	<string.h>
 	"LinkedList.h"
 	"Employee.h"
 	"input.h"
+	"parser.h"
+	"controller.h"
+
+1560530469 c:\users\alvar\desktop\programacion-1\programacion 1\clases segundo parcial\clase 18\tp3\parser.h
 

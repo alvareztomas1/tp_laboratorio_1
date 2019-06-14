@@ -6,6 +6,7 @@
 #include "Employee.h"
 #include "input.h"
 
+
 /****************************************************
     Menu:
      1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).
@@ -23,15 +24,29 @@
 
 int main()
 {
-    int opcion;
     LinkedList* listaEmpleados = ll_newLinkedList();
     char seguir = 's';
     char rta;
     int error;
+    int opcionMenu;
+
+
 
     do{
+        printf("-------TRABAJO PRACTICO NUMERO 3-------\n\n");
+        printf("1. Cargar los datos de los empleados desde el archivo data.csv\n");
+        printf("2. Cargar los datos de los empleados desde el archivo data.bin\n");
+        printf("3. Alta de empleado\n");
+        printf("4. Modificar datos de empleado\n");
+        printf("5. Baja de empleado\n");
+        printf("6. Listar empleados\n");
+        printf("7. Ordenar empleados\n");
+        printf("8. Guardar los datos de los empleados en el archivo data.csv\n");
+        printf("9. Guardar los datos de los empleados en el archivo data.bin\n");
+        printf("10. Salir\n\n");
+        input_getInt(&opcionMenu, "Ingrese opcion: ", "Opcion invalida. Reingrese: ", 1, 10);
 
-        switch( controller_menu() )
+        switch( opcionMenu )
         {
             case 1:
                 system("cls");
@@ -73,7 +88,7 @@ int main()
                 }
                 else
                 {
-                    printf("\Alta empleado exitosa!!\n\n");
+                    printf("\nAlta empleado exitosa!!\n\n");
                 }
                 system("pause");
                 break;
@@ -190,7 +205,7 @@ int main()
                 system("pause");
                 break;
         }
-
+    fflush(stdin);
     }while(seguir == 's');
 
 

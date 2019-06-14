@@ -27,6 +27,6 @@ int employee_setSueldo(Employee* this,int sueldo);
 int employee_getSueldo(Employee* this,int* sueldo);
 
 int employee_findLastId(LinkedList* pArrayListEmployee);
-int employee_findEmployee(LinkedList* pArrayListEmpoloyee, int id);
+
 
 #endif // employee_H_INCLUDED

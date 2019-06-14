@@ -1,72 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #include "LinkedList.h"
 #include "Employee.h"
 #include "input.h"
+#include "parser.h"
+#include "controller.h"
 
-
-int controller_menu()
-{
-    int rta;
-
-    printf("-------TRABAJO PRACTICO NUMERO 3-------\n\n");
-    printf("1. Cargar los datos de los empleados desde el archivo data.csv\n");
-    printf("2. Cargar los datos de los empleados desde el archivo data.bin\n");
-    printf("3. Alta de empleado\n");
-    printf("4. Modificar datos de empleado\n");
-    printf("5. Baja de empleado\n");
-    printf("6. Listar empleados\n");
-    printf("7. Ordenar empleados\n");
-    printf("8. Guardar los datos de los empleados en el archivo data.csv\n");
-    printf("9. Guardar los datos de los empleados en el archivo data.bin\n");
-    printf("10. Salir\n\n");
-    input_getInt(&rta, "Ingrese opcion: ", "Opcion invalida. Reingrese: ", 1, 10);
-
-
-    return rta;
-}
 
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
-    int error = 1;
     FILE* f;
-    char buffer[4][20];
-    int cant;
-
     f = fopen(path, "r");
+    int error;
 
-    if( f != NULL )
-    {
-        ll_clear(pArrayListEmployee);
-
-        while ( !feof(f) )
-        {
-            Employee* newEmploye = employee_new();
-
-            if ( newEmploye != NULL )
-            {
-                cant = fscanf(f, "%[^,],%[^,],%[^,],%[^\n]\n", buffer[0], buffer[1], buffer[2], buffer[3]);
-
-                if( cant < 4 )
-                {
-                    break;
-                }
-
-                employee_setId(newEmploye, atoi(buffer[0]));
-                employee_setNombre(newEmploye, buffer[1]);
-                employee_setHorasTrabajadas(newEmploye, atoi(buffer[2]));
-                employee_setSueldo(newEmploye, atoi(buffer[3]));
-
-                ll_add(pArrayListEmployee, newEmploye);
-                printf(" %04d   %-10s   %3d   %6d\n\n", newEmploye->id, newEmploye->nombre, newEmploye->horasTrabajadas, newEmploye->sueldo);
-                error = 0;
-            }
-
-        }
-
-        fclose(f);
-    }
+    error = parser_EmployeeFromText(f, pArrayListEmployee);
 
     return error;
 }
@@ -74,38 +23,12 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    int error = 1;
+    int error ;
     FILE* f;
-    int cant;
 
     f = fopen(path, "rb");
 
-    if( f != NULL )
-    {
-        ll_clear(pArrayListEmployee);
-
-        while ( !feof(f) )
-        {
-            Employee* newEmploye = employee_new();
-
-            if ( newEmploye != NULL )
-            {
-                cant = fread(newEmploye, sizeof (Employee), 1, f);
-
-                if( cant < 1 )
-                {
-
-                    break;
-                }
-
-                ll_add(pArrayListEmployee, newEmploye);
-
-                error = 0;
-            }
-        }
-
-        fclose(f);
-    }
+    error = parser_EmployeeFromBinary(f, pArrayListEmployee);
 
     return error;
 }
@@ -298,8 +221,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                     *aux = *employeeI;
                     *employeeI = *employeeJ;
                     *employeeJ = *aux;
-                    /*ll_set(pArrayListEmployee, j, employeeI);
-                    ll_set(pArrayListEmployee, i, aux);*/
+
                     error = 0;
                 }
             }
@@ -328,7 +250,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
             employee = ll_get(pArrayListEmployee, i);
 
             fprintf(f, "%d,%s,%d,%d\n", employee->id, employee->nombre, employee->horasTrabajadas, employee->sueldo);
-             printf(" %04d   %-10s   %3d   %6d\n\n", employee->id, employee->nombre, employee->horasTrabajadas, employee->sueldo);
+
             error = 0;
         }
     }

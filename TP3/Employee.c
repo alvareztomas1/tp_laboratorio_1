@@ -113,7 +113,7 @@ int employee_findLastId(LinkedList* pArrayListEmployee)
     int id = -1;
     Employee* employee = employee_new();
 
-    if ( employee != NULL )
+    if ( employee != NULL && pArrayListEmployee )
     {
         for (int i = 0; i<ll_len(pArrayListEmployee); i++)
         {
@@ -126,26 +126,4 @@ int employee_findLastId(LinkedList* pArrayListEmployee)
     return id;
 }
 
-int employee_findEmployee(LinkedList* pArrayListEmpoloyee, int id)
-{
-    int error = -1;
 
-    Employee* employee = employee_new();
-
-    if ( employee != NULL )
-    {
-
-        for (int i = 0; i<ll_len(pArrayListEmpoloyee); i++)
-        {
-            printf("funciona\n");
-            employee = ll_get(pArrayListEmpoloyee, i);
-
-            if (employee->id == id)
-            {
-                error = i;
-            }
-        }
-    }
-
-    return error;
-}
