@@ -99,9 +99,9 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
    int returnAux = -1;
 
-    Node* prev;
-    Node* next;
-    Node* nuevoNodo;
+    Node* prev = NULL;
+    Node* next = NULL;
+    Node* nuevoNodo = NULL;
 
     if( this != NULL )
     {
@@ -169,8 +169,8 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    Node* nuevoNodo = (Node*)malloc(sizeof(Node));
-    Node* nodoPrevio;
+    Node* nuevoNodo = NULL;
+    Node* nodoPrevio = NULL;
 
     if( this != NULL )
     {
@@ -213,7 +213,7 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if ( this != NULL && index >= 0 && index < ll_len(this) )
     {
@@ -239,7 +239,7 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if ( this != NULL && index >= 0 && index < ll_len(this) )
     {
@@ -315,7 +315,7 @@ int ll_remove(LinkedList* this,int index)
 int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if ( this != NULL )
     {
@@ -343,7 +343,7 @@ int ll_clear(LinkedList* this)
 int ll_deleteLinkedList(LinkedList* this)
 {
     int returnAux = -1;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if ( this != NULL )
     {
@@ -372,7 +372,7 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if ( this != NULL )
     {
@@ -482,7 +482,7 @@ int ll_push(LinkedList* this, int index, void* pElement)
 void* ll_pop(LinkedList* this,int index)
 {
     void* returnAux = NULL;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if( this != NULL && index >= 0 && index <= ll_len(this) )
     {
@@ -512,7 +512,7 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    Node* pNode;
+    Node* pNode = NULL;
 
     if( this != NULL )
     {
@@ -548,8 +548,8 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
-    Node* thisNode;
-    Node* this2Node;
+    Node* thisNode = NULL;
+    Node* this2Node = NULL;
 
     if( this != NULL && this2 != NULL )
     {
@@ -584,7 +584,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
-    void* elements;
+    void* elements = NULL;
 
     if( this != NULL && from >=0  && from <= ll_len(this) && to >= 0 && to <= ll_len(this) )
     {
@@ -623,7 +623,7 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
    LinkedList* cloneArray = NULL;
-   void* elements;
+   void* elements = NULL;
 
     if( this != NULL )
     {
@@ -659,7 +659,7 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux = -1;
-    void* auxNode;
+    void* auxNode = NULL;
 
     if( this != NULL && pFunc != NULL && order >= 0 && order <= 1)
     {
